@@ -1,6 +1,0 @@
-<resources>
-    <!--
-  api key is deleted
-    -->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">DELETED API KEY</string>
-</resources>
