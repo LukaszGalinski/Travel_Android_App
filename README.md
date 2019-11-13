@@ -2,6 +2,10 @@
 
 >>>>Still in progress<<<<
 
+It's kind of travel application. It's dedicated mainly for students from outside the Poland to help them moving around
+the Szczecin city. It shows where they can eat, sleep, have fun etc. There is also google map added with searching option
+for nearby points which depends on chosen category. 
+
  >November
 - Exit from the application after double "back" button press.
 - Blocked moving Mainmenu -> Login Screen (by "back" button)
