@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">UniverCity</string>
+        <string name="action_settings">Settings</string>
+        <string name="forgot_your_password" translatable="false">Forgot your password?</string>
+        <string name="logo">Logo</string>
+        <string name="usericon">User icon</string>
+        <string name="facebook_app_id">408594040065569</string>
+        <string name="fb_login_protocol_scheme">fb408594040065569</string>
+        <string name="title_activity_settings">Settings</string>
+
+        <string name="open">Open</string>
+        <string name="close">Close</string>
+
+
+        <!-- Preference Titles -->
+        <string name="messages_header">Messages</string>
+        <string name="sync_header">Sync</string>
+
+        <!-- Messages Preferences -->
+        <string name="signature_title">Your signature</string>
+        <string name="reply_title">Default reply action</string>
+
+        <!-- Sync Preferences -->
+        <string name="sync_title">Sync email periodically</string>
+        <string name="attachment_title">Download incoming attachments</string>
+        <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+        <string name="attachment_summary_off">Only download attachments when manually requested</string>
+        <string name="title_activity_maps">Map</string>
+
+    <string name="dont_have_an_account">Don\'t have an account? Register now! </string>
+
+    <string name="password">Password</string>
+    <string name="repeatpass">Repeat password</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="login">L o g i n</string>
+    <string name="or">Or</string>
+    <string name="loginvia">Loggin with social media</string>
+
+    <string name="aboutme">Info</string>
+    <string name="logout">Log Out</string>
+    <string name="events">Events</string>
+    <string name="contact">Contact</string>
+    <string name="language">Choose Language</string>
+
+    <string name="relaks">Relaxation</string>
+    <string name="gastronomy">Gastronomy</string>
+    <string name="nocleg">Accommodation</string>
+    <string name="atraction">Attractions</string>
+    <string name="hospital">Health Service</string>
+    <string name="univer">University</string>
+    <string name="searcharound">Search In the Area</string>
+
+    <string name="menu">Main Menu</string>
+    <string name="loginto">Login to UniverCity</string>
+
+    <string name="opinion">Revievs</string>
+    <string name="ratetheplace">Rate the place</string>
+    <string name="showonmap">Show on the map</string>
+
+    <string name="addopinion">Add your review about this place. Remember the culture of expression!</string>
+    <string name="name">Username</string>
+    <string name="writecomm">Write review</string>
+    <string name="send">Send</string>
+
+    <string name="contactmsg">Fill all the fields to contact me. I answer usually in 24h, on the email you gave while logging in</string>
+    <string name="givename">Your name</string>
+    <string name="writemsg">Input your messeage</string>
+    <string name="aboutmemsg">My name is Łukasz Galiński. Application was made during my studies at the West Pomeranian University of Technology in Szczecin, as an engineering thesis at the Faculty of Computer Science in the field of Digitization Engineering </string>
+    <string name="ok">OK </string>
+
+    <string name="inputemail">Input your email address</string>
+    <string name="validemail">Please input valid email address</string>
+    <string name="checkemail">Please check your email and following the informations</string>
+    <string name="emailnotexist">Email doesn\'t exist</string>
+    <string name="fillfields">Please, fill all the fields&#8230;</string>
+    <string name="wrongdetails">Wrong email/password. Please try again&#8230;</string>
+    <string name="welcome">Welcome </string>
+    <string name="somethingwrong">Something went wrong. Please try again&#8230;</string>
+    <string name="exit">Press BACK twice to exit the application</string>
+    <string name="registersuccess">User has been added</string>
+    <string name="emailwrong">Following address email doesn\'t exists or is already in use</string>
+    <string name="passdiff">Passwords are not identical</string>
+    <string name="passrules">Password must contain atleast 7 signs, digit and capital letter</string>
+    <string name="msgsent">Message sent. Thanks for your contact</string>
+    <string name="norate">No rating</string>
+    <string name="noinfo">No description</string>
+    <string name="search">Search</string>
+
+    <string name="showgastro">Showing nearby Gastronomy point</string>
+    <string name="showfun">Showing nearby fun and relaks locations</string>
+    <string name="showsleep">Showing nearby sleeping locations</string>
+    <string name="showatra">Showing nearby tourist atractions</string>
+    <string name="showmed">Showing nearby medical points</string>
+    <string name="nogps">Unable to get your position. Please turn on the Gps location&#8230;</string>
+    <string name="tyrev">Thanks for your review</string>
+
+    <string name="comhor">Horrible :C</string>
+    <string name="combad">Bad:(</string>
+    <string name="comneu">Neutral :|</string>
+    <string name="comgood">Good :)</string>
+    <string name="comama">Amazing :D</string>
+
+    <string name="choselng">Choose your language&#8230;</string>
+    <string name="timetable">Timetable</string>
+</resources>

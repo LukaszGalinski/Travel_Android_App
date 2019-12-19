@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/aboutme" android:title="@string/aboutme" android:icon="@drawable/ic_info_black_24dp" />
+    <item android:id="@+id/contact" android:title="@string/contact" android:icon="@drawable/ic_message_black_24dp"/>
+    <item android:id="@+id/events" android:title="@string/events" android:icon="@drawable/ic_event_black_24dp" />
+    <item android:id="@+id/moving" android:title="@string/timetable" android:icon="@drawable/ic_directions_bus_black_24dp" />
+    <item android:id="@+id/changeLanguage" android:title="@string/language" android:icon="@drawable/ic_flag_black_24dp"/>
+    <item android:id="@+id/logout" android:title="@string/logout" android:icon="@drawable/ic_exit_to_app_black_24dp"/>
+</menu>
