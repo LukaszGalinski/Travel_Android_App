@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/aboutme" android:title="O mnie" android:icon="@drawable/ic_info_black_24dp" />
-    <item android:id="@+id/contact" android:title="Kontakt" android:icon="@drawable/ic_message_black_24dp"/>
-    <item android:id="@+id/events" android:title="Wydarzenia" android:icon="@drawable/ic_event_black_24dp" />
-    <item android:id="@+id/logout" android:title="LogOut" android:icon="@drawable/ic_exit_to_app_black_24dp"/>
-</menu>
