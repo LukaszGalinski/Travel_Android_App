@@ -38,57 +38,6 @@ public class ShowCommentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_comments_layout);
-
-        final ImageButton relaks = (ImageButton) findViewById(R.id.relaks);
-        final ImageButton restaurant = (ImageButton) findViewById(R.id.restauracje);
-        final ImageButton hotel = (ImageButton) findViewById(R.id.hotele);
-        final ImageButton atraction = (ImageButton) findViewById(R.id.atrakcje);
-        final ImageButton hospital = (ImageButton) findViewById(R.id.szpitale);
-        final ImageButton universe = (ImageButton) findViewById(R.id.universytety);
-
-
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(getApplicationContext(), TestActivity.class);
-                ChangingBarImage changeImageBar = new Background();
-                changeImageBar.setImageBg(relaks,atraction,hotel,restaurant,hospital,universe);
-                switch (v.getId()){
-                    case R.id.relaks:
-                        intent.putExtra("category", "relaks");
-
-                        break;
-                    case R.id.restauracje:
-                        intent.putExtra("category", "restauracje");
-                        break;
-                    case R.id.hotele:
-                        intent.putExtra("category", "hotel");
-                        hotel.setImageResource(R.drawable.hotel_shone);
-                        break;
-                    case R.id.atrakcje:
-                        intent.putExtra("category", "atrakcje");
-                        atraction.setImageResource(R.drawable.atraction_shine);
-                        break;
-                    case R.id.szpitale:
-                        intent.putExtra("category", "szpital");
-                        hospital.setImageResource(R.drawable.hosp_shine);
-                        break;
-                    case R.id.universytety:
-                        intent.putExtra("category", "uniwersytet");
-                        universe.setImageResource(R.drawable.univ_shine);
-                        break;
-                }
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-            }
-        };
-        relaks.setOnClickListener(listener);
-        restaurant.setOnClickListener(listener);
-        hotel.setOnClickListener(listener);
-        atraction.setOnClickListener(listener);
-        hospital.setOnClickListener(listener);
-        universe.setOnClickListener(listener);
     }
 
         protected void onStart() {

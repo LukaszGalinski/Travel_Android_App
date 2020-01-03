@@ -85,7 +85,7 @@
     <string name="passdiff">Hasła nie są identyczne</string>
     <string name="passrules">Hasło musi zawierać co najmniej 7 znaków, cyfrę i wielką literę</string>
     <string name="msgsent">Wiadomość wysłana. Dziękujemy za kontakt </string>
-    <string name="norate">Brak oceny</string>
+    <string name="norate">Brak ocen</string>
     <string name="noinfo">Brak opisu</string>
     <string name="search">Wyszukaj</string>
 

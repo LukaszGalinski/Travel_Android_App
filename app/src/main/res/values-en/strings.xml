@@ -85,7 +85,7 @@
     <string name="passdiff">Passwords are not identical</string>
     <string name="passrules">Password must contain atleast 7 signs, digit and capital letter</string>
     <string name="msgsent">Message sent. Thanks for your contact</string>
-    <string name="norate">No rating</string>
+    <string name="norate">No ratings</string>
     <string name="noinfo">No description</string>
     <string name="search">Search</string>
 

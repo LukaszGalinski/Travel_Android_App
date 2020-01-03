@@ -63,7 +63,6 @@ public class TestActivity extends AppCompatActivity {
          placeList = new ArrayList<>();
 
          //Moving between categories
-
         final ImageButton relaks = (ImageButton) findViewById(R.id.relaks);
         final ImageButton restaurant = (ImageButton) findViewById(R.id.restauracje);
         final ImageButton hotel = (ImageButton) findViewById(R.id.hotele);

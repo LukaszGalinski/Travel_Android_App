@@ -8,7 +8,8 @@
     tools:context=".account.LoginActivity"
     tools:showIn="@layout/relaks_layout"
     android:background="@drawable/backgroudn"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/barlayout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,12 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
+                <ImageButton
+                    android:id="@+id/relaks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/relaks"/>
                 <ImageButton
                     android:id="@+id/restauracje"
                     android:layout_width="match_parent"
@@ -33,25 +39,17 @@
                     android:background="@color/colorPrimary"
                     android:src="@drawable/restaurant"/>
                 <ImageButton
-                    android:id="@+id/relaks"
+                    android:id="@+id/hotele"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
-                    android:src="@drawable/relaks"/>
-
-    <ImageButton
-        android:id="@+id/hotele"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:src="@drawable/hotel"/>
-
-    <ImageButton
-        android:id="@+id/atrakcje"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:src="@drawable/atraction"/>
+                    android:src="@drawable/hotel"/>
+                <ImageButton
+                    android:id="@+id/atrakcje"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/atraction"/>
                 <ImageButton
                     android:id="@+id/szpitale"
                     android:layout_width="match_parent"
@@ -64,11 +62,11 @@
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/university_small"/>
-</TableRow>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@android:color/white" />
-    </TableLayout>
-</LinearLayout>
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white" />
+        </TableLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

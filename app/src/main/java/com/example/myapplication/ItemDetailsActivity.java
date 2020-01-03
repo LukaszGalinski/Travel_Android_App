@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -42,10 +43,13 @@ public class ItemDetailsActivity extends AppCompatActivity {
     double averageRate;
     String result;
     int pressCounter=0;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_details_layout);
+
+        Intent intent = getIntent();
+        String categorySwitch = intent.getStringExtra(PLACE_CATEGORY);
+
         final ImageButton relaks = (ImageButton) findViewById(R.id.relaks);
         final ImageButton restaurant = (ImageButton) findViewById(R.id.restauracje);
         final ImageButton hotel = (ImageButton) findViewById(R.id.hotele);
@@ -53,9 +57,29 @@ public class ItemDetailsActivity extends AppCompatActivity {
         final ImageButton hospital = (ImageButton) findViewById(R.id.szpitale);
         final ImageButton universe = (ImageButton) findViewById(R.id.universytety);
 
+        switch (categorySwitch){
+            case "relaks":
+                relaks.setImageResource(R.drawable.relaks_shine);
+                break;
+            case "restauracje":
+                restaurant.setImageResource(R.drawable.restaurant_shine);
+                break;
+            case "hotel":
+                hotel.setImageResource(R.drawable.hotel_shone);
+                break;
+            case "atrakcje":
+                atraction.setImageResource(R.drawable.atraction_shine);
+                break;
+            case "szpital":
+                hospital.setImageResource(R.drawable.hosp_shine);
+                break;
+            case "uniwersytet":
+                universe.setImageResource(R.drawable.univ_shine);
+                break;
+        }
 
 
-        View.OnClickListener listener = new View.OnClickListener() {
+        View.OnClickListener listenered = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent;
@@ -65,10 +89,11 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 switch (v.getId()){
                     case R.id.relaks:
                         intent.putExtra("category", "relaks");
-
+                        relaks.setImageResource(R.drawable.relaks_shine);
                         break;
                     case R.id.restauracje:
                         intent.putExtra("category", "restauracje");
+                        restaurant.setImageResource(R.drawable.restaurant_shine);
                         break;
                     case R.id.hotele:
                         intent.putExtra("category", "hotel");
@@ -91,12 +116,12 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         };
-        relaks.setOnClickListener(listener);
-        restaurant.setOnClickListener(listener);
-        hotel.setOnClickListener(listener);
-        atraction.setOnClickListener(listener);
-        hospital.setOnClickListener(listener);
-        universe.setOnClickListener(listener);
+        relaks.setOnClickListener(listenered);
+        restaurant.setOnClickListener(listenered);
+        hotel.setOnClickListener(listenered);
+        atraction.setOnClickListener(listenered);
+        hospital.setOnClickListener(listenered);
+        universe.setOnClickListener(listenered);
     }
 
     protected void onStart() {
