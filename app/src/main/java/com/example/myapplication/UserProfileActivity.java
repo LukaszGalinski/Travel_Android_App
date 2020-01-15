@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,7 +50,6 @@ public class UserProfileActivity extends AppCompatActivity {
 
         Button test  = (Button) findViewById(R.id.test);
         Button send = (Button) findViewById(R.id.sendUserData);
-        TextView userName = (TextView) findViewById(R.id.username);
 
         final EditText name = (EditText) findViewById(R.id.name);
         final EditText surname = (EditText) findViewById(R.id.surname);

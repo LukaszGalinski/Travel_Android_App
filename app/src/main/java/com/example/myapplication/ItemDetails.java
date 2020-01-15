@@ -8,10 +8,8 @@ public class ItemDetails {
     }
 
     public ItemDetails(String info, long rate) {
-
         this.info = info;
         this.rate = rate;
-
     }
 
     public String getInfo() {

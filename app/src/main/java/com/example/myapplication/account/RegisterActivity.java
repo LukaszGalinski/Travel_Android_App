@@ -7,12 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myapplication.R;
-import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,9 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         et1 = (EditText) findViewById(R.id.email);
         et2 = (EditText) findViewById(R.id.pass);
         et3 = (EditText) findViewById(R.id.passRepeat);
-
         bt1 = (Button) findViewById(R.id.regBtn);
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         bt1.setOnClickListener(new View.OnClickListener() {

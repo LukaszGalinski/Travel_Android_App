@@ -1,15 +1,15 @@
 package com.example.myapplication.account;
 
-public class Validation {
+class Validation {
+    private static final String DIGIT_PATTERN= ".*\\d.*";
+    private static final String HAS_UPPER_LETTER_PATTERN= ".*[A-Z].*";
+    private static final int PASSWORD_LENGTH = 7;
 
-    public boolean areNotEmpty(String s1, String s2, String s3){
-        if (s1.equals("") || s2.equals("") || s3.equals("")) return false;
-        else return true;
+    boolean areNotEmpty(String s1, String s2, String s3) {
+        return !s1.equals("") && !s2.equals("") && !s3.equals("");
     }
 
-    public boolean passwordCheck(String password){
-        if (password.length()<7 || !password.matches(".*\\d.*") || !password.matches(".*[A-Z].*")) return false;
-        else return true;
-}
-
+    boolean passwordCheck(String password) {
+        return password.length() >= PASSWORD_LENGTH && password.matches(DIGIT_PATTERN) && password.matches(HAS_UPPER_LETTER_PATTERN);
+    }
 }

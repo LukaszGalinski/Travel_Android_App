@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
-import android.content.Context;
-import android.view.View;
+
 import android.widget.ImageButton;
 
 public interface ChangingBarImage {

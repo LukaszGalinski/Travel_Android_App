@@ -18,22 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"/>
-        <!-- Login activities -->
-        <!-- Login -->
         <activity
             android:name=".account.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,15 +40,13 @@
         <activity
             android:name=".account.ForgotPasswordActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" /> <!-- Main menu activities -->
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainMenuActivity"
-            android:label="@string/menu" /> <!-- Categories -->
-        <!-- Facebook -->
+            android:label="@string/menu" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -62,11 +56,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="fb408594040065569" />
+                <data android:scheme="@string/fbscheme" />
             </intent-filter>
         </activity>
         <activity android:name=".ItemDetailsActivity"
@@ -87,12 +79,11 @@
         <activity android:name=".drawermenu.Contact"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".test.TestActivity"
+        <activity android:name=".test.CategoriesListActivity"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UserProfileActivity"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
-
 </manifest>

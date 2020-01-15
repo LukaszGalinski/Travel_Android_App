@@ -1,19 +1,14 @@
 package com.example.myapplication;
 
 import android.os.AsyncTask;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.io.IOException;
-import java.util.HashMap;
 
 public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
     String googlePlacesData;

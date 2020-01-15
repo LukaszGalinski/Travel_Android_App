@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -15,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.categories_list.CommentsList;
-import com.example.myapplication.test.TestActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -31,66 +28,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowCommentsActivity extends AppCompatActivity {
+    private static final int IMG_WIDTH = 500;
+    private static final int IMG_HEIGHT = 500;
     DatabaseReference databaseComments;
     ListView listViewComments;
-
     List<Rate> commentsList;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_comments_layout);
     }
 
-        protected void onStart() {
-            super.onStart();
+    protected void onStart() {
+        super.onStart();
 
-            Intent intent = getIntent();
-             String placeName = intent.getStringExtra("placenamee");
-            String id = intent.getStringExtra("placeidd");
-            String category = intent.getStringExtra("placecategory");
-            String averageRate = intent.getStringExtra("averagerate");
-            String pos = intent.getStringExtra("placenumber");
-            System.out.println(category);
-            System.out.println(pos);
-            System.out.println(placeName);
-            System.out.println(averageRate);
-            System.out.println(id);
+        Intent intent = getIntent();
+        String placeName = intent.getStringExtra("placenamee");
+        String id = intent.getStringExtra("placeidd");
+        String category = intent.getStringExtra("placecategory");
+        String averageRate = intent.getStringExtra("averagerate");
+        String pos = intent.getStringExtra("placenumber");
 
-            databaseComments = FirebaseDatabase.getInstance().getReference("details").child(id).child("rate");
+        databaseComments = FirebaseDatabase.getInstance().getReference("details").child(id).child("rate");
 
-            //images reference
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            StorageReference photoReference = storageReference.child("places").child(category).child(pos).child(pos + ".png");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference photoReference = storageReference.child("places").child(category).child(pos).child(pos + ".png");
 
-            final ImageView imageBackground = (ImageView) findViewById(R.id.imageComments);
-            TextView placeNameView = (TextView) findViewById(R.id.placeNameComments);
-            RatingBar ratingBar = (RatingBar) findViewById(R.id.rateBarComments);
-           listViewComments = (ListView) findViewById(R.id.listViewComments);
+        final ImageView imageBackground = (ImageView) findViewById(R.id.imageComments);
+        TextView placeNameView = (TextView) findViewById(R.id.placeNameComments);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.rateBarComments);
+        listViewComments = (ListView) findViewById(R.id.listViewComments);
 
-            commentsList = new ArrayList<>();
+        commentsList = new ArrayList<>();
 
-            placeNameView.setText(placeName);
-          try {
-              ratingBar.setRating(Float.valueOf(averageRate));
-              }catch (NullPointerException | NumberFormatException e){};
-
-
-
+        placeNameView.setText(placeName);
+        try {
+            ratingBar.setRating(Float.valueOf(averageRate));
+        } catch (NullPointerException | NumberFormatException e) {
+        }
+        ;
 
 
         //loading image
-       photoReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        photoReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.with(ShowCommentsActivity.this)
                         .load(uri)
-                        .resize(500,500)
+                        .resize(IMG_WIDTH, IMG_HEIGHT)
                         .into(imageBackground);
-                Log.d("Loading ImageBG: "," Success!");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Log.d("Loading ImageBG: "," Failed!");
+                Log.d("Loading ImageBG: ", " Failed!");
             }
         });
 
@@ -99,23 +90,17 @@ public class ShowCommentsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 commentsList.clear();
-
                 for (DataSnapshot placesSnapshot : dataSnapshot.getChildren()) {
                     Rate rate = placesSnapshot.getValue(Rate.class);
-
-                    //akceptacja
-                   if (rate.isAccept()) {
-                       commentsList.add(rate);
+                    if (rate.isAccept()) {
+                        commentsList.add(rate);
                     }
                 }
                 CommentsList adapter = new CommentsList(ShowCommentsActivity.this, commentsList);
-               listViewComments.setAdapter(adapter);
-
+                listViewComments.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

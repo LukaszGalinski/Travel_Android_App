@@ -5,15 +5,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Post;
 import com.example.myapplication.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,13 +28,9 @@ public class Contact extends AppCompatActivity {
         final EditText message = (EditText) findViewById(R.id.contactus_message);
         Button sendBtn = (Button) findViewById(R.id.contactus_sendButton);
 
-
-        //Collect needed Data
         final String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd, HH:mm", Locale.getDefault());
         final String currentTime = df.format(new Date());
-
-
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,18 +51,5 @@ public class Contact extends AppCompatActivity {
             }
         });
 
-    }
-    public static class Post{
-        public String userName;
-        public String userEmail;
-        public String message;
-        public String date;
-
-        public Post(String date,  String userEmail, String userName, String message){
-            this.userName = userName;
-            this.userEmail = userEmail;
-            this.message = message;
-            this.date = date;
-        }
     }
 }

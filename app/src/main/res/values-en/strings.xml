@@ -105,4 +105,5 @@
 
     <string name="choselng">Choose your language&#8230;</string>
     <string name="timetable">Timetable</string>
+    <string name="activate_acc">Please activate you account by click on the link sended on your email</string>
 </resources>

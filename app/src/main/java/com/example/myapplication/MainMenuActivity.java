@@ -12,7 +12,6 @@ import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,18 +23,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.myapplication.account.LoginActivity;
 import com.example.myapplication.drawermenu.Contact;
 import com.example.myapplication.drawermenu.aboutme;
-import com.example.myapplication.test.TestActivity;
+import com.example.myapplication.test.CategoriesListActivity;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageException;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.net.URI;
 import java.util.Locale;
 
 
@@ -98,7 +95,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(getApplicationContext(), TestActivity.class);
+                intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
                 ChangingBarImage changeImageBar = new Background();
 
                 switch (v.getId()){
@@ -221,18 +218,15 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         setLocale(lang);
     }
 
-    //do nothing when back button is pressed
     @Override
     public void onBackPressed() {}
 
-    //go to maps activity
     public void search(View view){
         Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
         startActivity(intent);
 
     }
     public void loadProfileImage() {
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
         View headerView = navigationView.getHeaderView(0);
         final ImageButton photo = (ImageButton) headerView.findViewById(R.id.drawerbarImage);

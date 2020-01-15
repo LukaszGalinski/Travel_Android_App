@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.test.TestActivity;
+import com.example.myapplication.test.CategoriesListActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,9 +28,9 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 
-import static com.example.myapplication.test.TestActivity.PLACE_CATEGORY;
-import static com.example.myapplication.test.TestActivity.PLACE_NAME;
-import static com.example.myapplication.test.TestActivity.PLACE_NUMBER;
+import static com.example.myapplication.test.CategoriesListActivity.PLACE_CATEGORY;
+import static com.example.myapplication.test.CategoriesListActivity.PLACE_NAME;
+import static com.example.myapplication.test.CategoriesListActivity.PLACE_NUMBER;
 
 
 public class ItemDetailsActivity extends AppCompatActivity {
@@ -83,7 +82,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(getApplicationContext(), TestActivity.class);
+                intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
                 ChangingBarImage changeImageBar = new Background();
                 changeImageBar.setImageBg(relaks,atraction,hotel,restaurant,hospital,universe);
                 switch (v.getId()){

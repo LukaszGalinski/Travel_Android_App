@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import android.widget.ArrayAdapter;
-
 public class Place {
     private String address;
     private String name;

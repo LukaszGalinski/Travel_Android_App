@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,10 +29,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
-public class TestActivity extends AppCompatActivity {
+public class CategoriesListActivity extends AppCompatActivity {
 
     public static final String PLACE_NAME = "placename";
     public static final String PLACE_ID = "placeid";
@@ -44,7 +42,7 @@ public class TestActivity extends AppCompatActivity {
     DatabaseReference databasePlaces;
     ListView listViewPlaces;
 
-    List <Place> placeList;
+    List<Place> placeList;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +57,8 @@ public class TestActivity extends AppCompatActivity {
 
         listViewPlaces = (ListView) findViewById(R.id.list_places);
 
+        placeList = new ArrayList<>();
 
-         placeList = new ArrayList<>();
-
-         //Moving between categories
         final ImageButton relaks = (ImageButton) findViewById(R.id.relaks);
         final ImageButton restaurant = (ImageButton) findViewById(R.id.restauracje);
         final ImageButton hotel = (ImageButton) findViewById(R.id.hotele);
@@ -70,8 +66,7 @@ public class TestActivity extends AppCompatActivity {
         final ImageButton hospital = (ImageButton) findViewById(R.id.szpitale);
         final ImageButton universe = (ImageButton) findViewById(R.id.universytety);
 
-        //set shadow on the chosen image
-        switch (categorySwitch){
+        switch (categorySwitch) {
             case "relaks":
                 relaks.setImageResource(R.drawable.relaks_shine);
                 break;
@@ -96,33 +91,27 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent;
-                intent = new Intent(getApplicationContext(), TestActivity.class);
+                intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
                 ChangingBarImage changeImageBar = new Background();
-                changeImageBar.setImageBg(relaks,atraction,hotel,restaurant,hospital,universe);
-                switch (v.getId()){
+                changeImageBar.setImageBg(relaks, atraction, hotel, restaurant, hospital, universe);
+                switch (v.getId()) {
                     case R.id.relaks:
                         intent.putExtra("category", "relaks");
-                        relaks.setImageResource(R.drawable.relaks_shine);
                         break;
                     case R.id.restauracje:
                         intent.putExtra("category", "restauracje");
-                        restaurant.setImageResource(R.drawable.restaurant_shine);
                         break;
                     case R.id.hotele:
                         intent.putExtra("category", "hotel");
-                        hotel.setImageResource(R.drawable.hotel_shone);
                         break;
                     case R.id.atrakcje:
                         intent.putExtra("category", "atrakcje");
-                        atraction.setImageResource(R.drawable.atraction_shine);
                         break;
                     case R.id.szpitale:
                         intent.putExtra("category", "szpital");
-                        hospital.setImageResource(R.drawable.hosp_shine);
                         break;
                     case R.id.universytety:
                         intent.putExtra("category", "uniwersytet");
-                        universe.setImageResource(R.drawable.univ_shine);
                         break;
                 }
                 startActivity(intent);
@@ -139,14 +128,14 @@ public class TestActivity extends AppCompatActivity {
         listViewPlaces.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Place place  =  placeList.get(position);
-                String sendPosition = Integer.toString(position+1);
+                Place place = placeList.get(position);
+                String sendPosition = Integer.toString(position + 1);
                 Intent intent = new Intent(getApplicationContext(), ItemDetailsActivity.class);
                 intent.putExtra(PLACE_CATEGORY, place.getCategory());
                 intent.putExtra("placeid", place.getPlaceid());
                 intent.putExtra(PLACE_NAME, place.getName());
                 intent.putExtra(PLACE_NUMBER, sendPosition);
-                //Check language
+
                 SharedPreferences preferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
                 String lang = preferences.getString("Language", "");
                 if (lang.equals("en")) intent.putExtra("info", place.getInfoen());
@@ -154,14 +143,12 @@ public class TestActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
-public void GoToMaps(View view){
+
+    public void GoToMaps(View view) {
         Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
         startActivity(intent);
-}
+    }
 
     @Override
     protected void onStart() {
@@ -172,26 +159,22 @@ public void GoToMaps(View view){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 placeList.clear();
-
                 for (DataSnapshot placesSnapshot : dataSnapshot.getChildren()) {
                     Place place = placesSnapshot.getValue(Place.class);
-
-                    //pobieranie danych i główna zasada filtrowania
                     if (place.getCategory().equals(categorySwitch)) {
                         placeList.add(place);
                     }
                 }
-                TestList adapter = new TestList(TestActivity.this, placeList, categorySwitch);
+                TestList adapter = new TestList(CategoriesListActivity.this, placeList, categorySwitch);
                 listViewPlaces.setAdapter(adapter);
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);

@@ -105,4 +105,5 @@
     <string name="choselng">Wybierz język&#8230;</string>
 
     <string name="timetable">Rozkład Jazdy</string>
+    <string name="activate_acc">Proszę aktywować konto, klikając w link wysłany na podany adres email</string>
 </resources>
