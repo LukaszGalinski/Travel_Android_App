@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/content_main"></include>
+    <include layout="@layout/background_layout"></include>
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"

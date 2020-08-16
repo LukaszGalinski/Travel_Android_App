@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <include layout="@layout/content_main" />
+  <include layout="@layout/background_layout" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,26 +32,26 @@
                     android:src="@drawable/restaurant"/>
 
                 <ImageButton
-                    android:id="@+id/hotele"
+                    android:id="@+id/hotel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/hotel"/>
 
                 <ImageButton
-                    android:id="@+id/atrakcje"
+                    android:id="@+id/attractions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/atraction"/>
                 <ImageButton
-                    android:id="@+id/szpitale"
+                    android:id="@+id/hospitals"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/hospital_small"/>
                 <ImageButton
-                    android:id="@+id/universytety"
+                    android:id="@+id/universities"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"

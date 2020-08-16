@@ -29,3 +29,4 @@ captures/
 .cxx/
 google-services.json
 vcs.xml
+.app/src/main/res/values/google_api_key.xml

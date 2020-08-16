@@ -34,10 +34,20 @@
         <item name="colorAccent">#F7E9E7E7</item>
     </style>
 
-    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="colorControlActivated">#00FFFFFF</item>
-        <item name="colorControlNormal">#00FFFFFF</item>
+    <style name="editTextStyle">
+        <item name="background">@color/black_half_transparent</item>
+        <item name="fontFamily">@font/bahnschrift</item>
+        <item name="paddingStart">@dimen/edit_text_padding</item>
+        <item name="paddingEnd">@dimen/edit_text_padding</item>
+        <item name="android:drawablePadding">@dimen/edit_drawable_padding</item>
+        <item name="android:layout_marginTop">@dimen/edit_text_margin</item>
+        <item name="android:layout_marginStart">@dimen/edit_text_margin</item>
+        <item name="android:layout_marginEnd">@dimen/edit_text_margin</item>
+        <item name="android:textColor">@android:color/background_light</item>
+        <item name="android:textColorHint">@android:color/background_light</item>
+        <item name="android:textCursorDrawable">@color/cursorColor</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true" >
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:fillViewport="true">
         <include
             android:id="@+id/include"
-            layout="@layout/content_main" />
+            layout="@layout/background_layout" />
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="@dimen/category_icon_size"
-            android:layout_height="@dimen/category_icon_size"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/aboutme"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/logo_margin_top"
             android:src="@drawable/ic_info_black_24dp"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -46,26 +45,24 @@
             android:text="@string/aboutmemsg"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/information_text_size"
             tools:layout_editor_absoluteX="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="@dimen/margin_default"
             app:layout_constraintTop_toBottomOf="@id/information"/>
+
         <Button
             android:id="@+id/okBtn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="50dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
             android:background="@color/colorButton"
             android:text="@string/ok"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_gravity="bottom"
-            android:textSize="20sp"
+            android:textSize="@dimen/button_text_size"
             app:layout_constraintTop_toBottomOf="@id/textView2"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>

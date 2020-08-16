@@ -48,7 +48,7 @@
     <string name="relaks">Relaxation</string>
     <string name="gastronomy">Gastronomy</string>
     <string name="nocleg">Accommodation</string>
-    <string name="atraction">Attractions</string>
+    <string name="attraction">Attractions</string>
     <string name="hospital">Health Service</string>
     <string name="univer">University</string>
     <string name="searcharound">Search In the Area</string>
@@ -68,7 +68,7 @@
     <string name="contactmsg">Fill all the fields to contact me. I answer usually in 24h, on the email you gave while logging in</string>
     <string name="givename">Your name</string>
     <string name="writemsg">Input your messeage</string>
-    <string name="aboutmemsg">My name is Łukasz Galiński. Application was made during my studies at the West Pomeranian University of Technology in Szczecin, as an engineering thesis at the Faculty of Computer Science in the field of Digitization Engineering </string>
+    <string name="aboutmemsg">Application was made during my studies at the West Pomeranian University of Technology in Szczecin, as an engineering thesis at the Faculty of Computer Science in the field of Digitization Engineering </string>
     <string name="ok">OK </string>
 
     <string name="inputemail">Input your email address</string>
@@ -82,7 +82,7 @@
     <string name="exit">Press BACK twice to exit the application</string>
     <string name="registersuccess">User has been added</string>
     <string name="emailwrong">Following address email doesn\'t exists or is already in use</string>
-    <string name="passdiff">Passwords are not identical</string>
+    <string name="wrong_input">Wrong inputs. Please try correct and try again</string>
     <string name="passrules">Password must contain atleast 7 signs, digit and capital letter</string>
     <string name="msgsent">Message sent. Thanks for your contact</string>
     <string name="norate">No ratings</string>
@@ -96,6 +96,7 @@
     <string name="showmed">Showing nearby medical points</string>
     <string name="nogps">Unable to get your position. Please turn on the Gps location&#8230;</string>
     <string name="tyrev">Thanks for your review</string>
+    <string name="url_open_info">Trying to open the browser&#8230;</string>
 
     <string name="comhor">Horrible :C</string>
     <string name="combad">Bad:(</string>
@@ -105,5 +106,7 @@
 
     <string name="choselng">Choose your language&#8230;</string>
     <string name="timetable">Timetable</string>
-    <string name="activate_acc">Please activate you account by click on the link sended on your email</string>
+    <string name="activate_acc">Please activate you account by click on the link sent on your email</string>
+    <string name="restaurants">restaurants</string>
+    <string name="hotel">hotel</string>
 </resources>

@@ -1,132 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/app_background"
+    android:paddingBottom="@dimen/edit_drawable_padding">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".account.RegisterActivity">
-        <include layout="@layout/content_main" />
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true" >
-        <LinearLayout
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/logo_width"
+            android:layout_height="@dimen/logo_height"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/logo_margin_top"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/app_logo_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="@dimen/edit_text_height"
+            android:background="@drawable/rounded_edit_text_black"
+            android:fontFamily="@font/bahnschrift"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            android:drawablePadding="@dimen/edit_drawable_padding"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:cursorVisible="true"
+            android:layout_marginTop="@dimen/edit_text_margin"
+            android:layout_marginStart="@dimen/edit_text_margin"
+            android:layout_marginEnd="@dimen/edit_text_margin"
+            android:hint="@string/hint_email"
+            android:drawableStart="@drawable/icon_login"
+            android:inputType="textEmailAddress"
+            android:textCursorDrawable="@color/cursorColor"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-            <ImageView
-                android:layout_width="250dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/univercity" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_edit_text_black"
+            android:cursorVisible="true"
+            android:fontFamily="@font/bahnschrift"
+            android:hint="@string/password"
+            android:gravity="center_vertical"
+            android:inputType="textPassword"
+            android:drawablePadding="@dimen/edit_drawable_padding"
+            android:drawableStart="@drawable/icon_password"
+            android:paddingStart="20dp"
+            android:layout_marginTop="@dimen/edit_text_margin"
+            android:layout_marginStart="@dimen/edit_text_margin"
+            android:layout_marginEnd="@dimen/edit_text_margin"
+            android:paddingEnd="10dp"
+            android:autofillHints="@string/password"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textCursorDrawable="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/email" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp">
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:background="#50000000"
-                    android:layout_marginStart="30dp"
-                    android:src="@drawable/loginicon"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="10dp"
-                    />
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:paddingStart="10dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="#50000000"
-                    android:fontFamily="@font/bahnschrift"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:textColorHint="@android:color/background_light"
-                    android:textColor="@android:color/background_light"
-                    android:cursorVisible="true"
-                    android:textCursorDrawable="@color/white"/>
+        <EditText
+            android:id="@+id/password_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_edit_text_black"
+            android:cursorVisible="true"
+            android:fontFamily="@font/bahnschrift"
+            android:hint="@string/repeatpass"
+            android:gravity="center_vertical"
+            android:inputType="textPassword"
+            android:drawablePadding="@dimen/edit_drawable_padding"
+            android:drawableStart="@drawable/icon_password"
+            android:paddingStart="20dp"
+            android:layout_marginTop="@dimen/edit_text_margin"
+            android:layout_marginStart="@dimen/edit_text_margin"
+            android:layout_marginEnd="@dimen/edit_text_margin"
+            android:paddingEnd="10dp"
+            android:autofillHints="@string/password"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textCursorDrawable="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/password" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:background="#50000000"
-                    android:layout_marginStart="30dp"
-                    android:src="@drawable/passwordicon"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="10dp"
-                    />
-                <EditText
-                    android:id="@+id/pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:paddingStart="10dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="#50000000"
-                    android:fontFamily="@font/bahnschrift"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:textColorHint="@android:color/background_light"
-                    android:textColor="@android:color/background_light"
-                    android:cursorVisible="true"
-                    android:textCursorDrawable="@color/white"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="60dp"
-                    android:background="#50000000"
-                    android:layout_marginStart="30dp"
-                    android:src="@drawable/passwordicon"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="10dp"
-                    />
-                <EditText
-                    android:id="@+id/passRepeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:paddingStart="10dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="#50000000"
-                    android:fontFamily="@font/bahnschrift"
-                    android:hint="@string/repeatpass"
-                    android:inputType="textPassword"
-                    android:textColorHint="@android:color/background_light"
-                    android:textColor="@android:color/background_light"
-                    android:cursorVisible="true"
-                    android:textCursorDrawable="@color/white"/>
-            </LinearLayout>
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:alpha="0.85"
+            android:background="@drawable/rounded_button_pink"
+            android:contentDescription="@string/login"
+            android:text="@string/register"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_repeat" />
 
-            <Button
-                android:id="@+id/regBtn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"
-                android:background="#890130"
-                android:contentDescription="@string/register"
-                android:text="@string/register"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                />
-
-        </LinearLayout>
-    </ScrollView>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

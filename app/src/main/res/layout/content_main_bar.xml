@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".account.LoginActivity"
-    tools:showIn="@layout/relaks_layout"
-    android:background="@drawable/backgroudn"
+    tools:context=".views.account.LoginActivity"
+    android:background="@drawable/app_background"
     android:orientation="vertical"
     android:id="@+id/barlayout">
 
@@ -39,25 +38,25 @@
                     android:background="@color/colorPrimary"
                     android:src="@drawable/restaurant"/>
                 <ImageButton
-                    android:id="@+id/hotele"
+                    android:id="@+id/hotel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/hotel"/>
                 <ImageButton
-                    android:id="@+id/atrakcje"
+                    android:id="@+id/attractions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/atraction"/>
                 <ImageButton
-                    android:id="@+id/szpitale"
+                    android:id="@+id/hospitals"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:src="@drawable/hospital_small"/>
                 <ImageButton
-                    android:id="@+id/universytety"
+                    android:id="@+id/universities"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"

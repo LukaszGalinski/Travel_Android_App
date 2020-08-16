@@ -47,7 +47,7 @@
     <string name="relaks">Relaks</string>
     <string name="gastronomy">Gastronomia</string>
     <string name="nocleg">Nocleg</string>
-    <string name="atraction">Atrakcje</string>
+    <string name="attraction">Atrakcje</string>
     <string name="hospital">Służba Zdrowia</string>
     <string name="univer">Uniwersytety</string>
     <string name="searcharound">Wyszukaj w okolicy</string>
@@ -67,7 +67,7 @@
     <string name="contactmsg">Wypełnij poniższe pola, aby się ze mną skontaktować. Odpowiadam zwykle w ciągu 24h, na email podany przy logowaniu</string>
     <string name="givename">Your name</string>
     <string name="writemsg">Wprowadź treść wiadomości</string>
-    <string name="aboutmemsg">Nazywam się Łukasz Galiński. Aplikacja powstała podczas moich studiów na Zachodniopomorskim Uniwersytecie Technologicznym w Szczecinie, jako praca inżynierska na Wydziale Informatyki. </string>
+    <string name="aboutmemsg">Aplikacja powstała podczas moich studiów na Zachodniopomorskim Uniwersytecie Technologicznym w Szczecinie, jako praca inżynierska na Wydziale Informatyki. </string>
     <string name="ok">OK </string>
 
     <string name="inputemail">Wprowadź adres email</string>
@@ -82,7 +82,7 @@
     <string name="exit">Wciśnij "wstecz" dwukrotnie by wyjść z aplikacji</string>
     <string name="registersuccess">Użytkownik został dodany</string>
     <string name="emailwrong">Podany adres email nie istnieje lub jest już w użyciu</string>
-    <string name="passdiff">Hasła nie są identyczne</string>
+    <string name="wrong_input">Wprowadzone dane są niepoprawne</string>
     <string name="passrules">Hasło musi zawierać co najmniej 7 znaków, cyfrę i wielką literę</string>
     <string name="msgsent">Wiadomość wysłana. Dziękujemy za kontakt </string>
     <string name="norate">Brak ocen</string>
@@ -96,6 +96,7 @@
     <string name="showmed">Pokazuję pobliskie punkty medyczne</string>
     <string name="nogps">Nie można uzyskać Twojej pozycji. Włącz lokalizację GPS&#8230;</string>
     <string name="tyrev">Dziękujemy za recenzję</string>
+    <string name="url_open_info">Trwa uruchamianie&#8230;</string>
 
     <string name="comhor">Okropny :C</string>
     <string name="combad">Zły :(</string>
@@ -106,4 +107,8 @@
 
     <string name="timetable">Rozkład Jazdy</string>
     <string name="activate_acc">Proszę aktywować konto, klikając w link wysłany na podany adres email</string>
+
+    <string name="hint_email">Email</string>
+    <string name="restaurants">restaurants</string>
+    <string name="hotel">hotel</string>
 </resources>
