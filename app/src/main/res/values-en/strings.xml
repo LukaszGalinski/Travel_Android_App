@@ -109,4 +109,6 @@
     <string name="activate_acc">Please activate you account by click on the link sent on your email</string>
     <string name="restaurants">restaurants</string>
     <string name="hotel">hotel</string>
+    <string name="hint_email">Email</string>
+    <string name="loading_data_message">Data is loading. Please wait</string>
 </resources>

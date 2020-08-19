@@ -1,109 +1,82 @@
 package com.example.myapplication.views;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
+import static com.example.myapplication.views.CategoriesListActivity.PLACE_CATEGORY;
+import static com.example.myapplication.views.CategoriesListActivity.PLACE_NAME;
+import static com.example.myapplication.views.CategoriesListActivity.PLACE_NUMBER;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.lifecycle.ViewModelProvider;
 import com.example.myapplication.R;
 import com.example.myapplication.models.Rate;
+import com.example.myapplication.viewmodels.CommentsViewModel;
 import com.example.myapplication.views.adapters.CommentsList;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShowCommentsActivity extends AppCompatActivity {
     private static final int IMG_WIDTH = 500;
     private static final int IMG_HEIGHT = 500;
-    DatabaseReference databaseComments;
+    private static final String PLACE_ID = "placeId";
+    private static final String PLACE_RATING = "placeRating";
+    private static final String LOADING_TAG = "Loading Image: ";
+
     ListView listViewComments;
     List<Rate> commentsList;
+    StorageReference photoReference;
+    CommentsViewModel commentsViewModel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_comments_layout);
-    }
-
-    protected void onStart() {
-        super.onStart();
 
         Intent intent = getIntent();
-        String placeName = intent.getStringExtra("placenamee");
-        String id = intent.getStringExtra("placeidd");
-        String category = intent.getStringExtra("placecategory");
-        String averageRate = intent.getStringExtra("averagerate");
-        String pos = intent.getStringExtra("placenumber");
+        String placeName = intent.getStringExtra(PLACE_NAME);
+        String id = intent.getStringExtra(PLACE_ID);
+        String category = intent.getStringExtra(PLACE_CATEGORY);
+        String averageRate = intent.getStringExtra(PLACE_RATING);
+        String pos = intent.getStringExtra(PLACE_NUMBER);
 
-        databaseComments = FirebaseDatabase.getInstance().getReference("details").child(id).child("rate");
+        commentsViewModel = new ViewModelProvider(this).get(CommentsViewModel.class);
+        commentsViewModel.instance(id);
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference photoReference = storageReference.child("places").child(category).child(pos).child(pos + ".png");
+        assert id != null;
+        assert category != null;
+        assert pos != null;
 
-        final ImageView imageBackground = (ImageView) findViewById(R.id.imageComments);
-        TextView placeNameView = (TextView) findViewById(R.id.placeNameComments);
-        RatingBar ratingBar = (RatingBar) findViewById(R.id.rateBarComments);
-        listViewComments = (ListView) findViewById(R.id.listViewComments);
-
+        photoReference = FirebaseStorage.getInstance().getReference().child("places").child(category).child(pos).child(pos + ".png");
+        listViewComments = findViewById(R.id.listViewComments);
         commentsList = new ArrayList<>();
+        setTheFields(placeName, averageRate);
+        getComments();
+    }
 
+    private void setTheFields(String placeName, String averageRate){
+        final ImageView imageBackground = findViewById(R.id.imageComments);
+        TextView placeNameView = findViewById(R.id.placeNameComments);
+        RatingBar ratingBar = findViewById(R.id.rateBarComments);
         placeNameView.setText(placeName);
         try {
-            ratingBar.setRating(Float.valueOf(averageRate));
-        } catch (NullPointerException | NumberFormatException e) {
-        }
-        ;
+            assert averageRate != null;
+            ratingBar.setRating(Float.parseFloat(averageRate));
+        } catch (NullPointerException | NumberFormatException ignored) {}
 
+        photoReference.getDownloadUrl().addOnSuccessListener(uri -> Picasso.with(ShowCommentsActivity.this)
+                .load(uri)
+                .resize(IMG_WIDTH, IMG_HEIGHT)
+                .into(imageBackground)).addOnFailureListener(exception -> Log.d(LOADING_TAG, " Failed!"));
+    }
 
-        //loading image
-        photoReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.with(ShowCommentsActivity.this)
-                        .load(uri)
-                        .resize(IMG_WIDTH, IMG_HEIGHT)
-                        .into(imageBackground);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Log.d("Loading ImageBG: ", " Failed!");
-            }
-        });
-
-
-        databaseComments.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                commentsList.clear();
-                for (DataSnapshot placesSnapshot : dataSnapshot.getChildren()) {
-                    Rate rate = placesSnapshot.getValue(Rate.class);
-                    if (rate.isAccept()) {
-                        commentsList.add(rate);
-                    }
-                }
-                CommentsList adapter = new CommentsList(ShowCommentsActivity.this, commentsList);
-                listViewComments.setAdapter(adapter);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+    private void getComments(){
+        CommentsList adapter = new CommentsList(ShowCommentsActivity.this, commentsViewModel.getComments());
+        listViewComments.setAdapter(adapter);
     }
 }

@@ -2,8 +2,8 @@ package com.example.myapplication.views;
 
 import android.os.AsyncTask;
 
-import com.example.myapplication.repositories.ParseData;
-import com.example.myapplication.repositories.UrlDownload;
+import com.example.myapplication.repositories.network.ParseData;
+import com.example.myapplication.repositories.network.UrlDownload;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;

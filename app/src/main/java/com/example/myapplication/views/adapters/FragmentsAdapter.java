@@ -9,6 +9,7 @@ import com.example.myapplication.views.CategoriesFragment;
 
 public class FragmentsAdapter extends FragmentStateAdapter {
     private static final int ITEMS_COUNT = 6;
+    private String[] categories = {"relaks", "restauracje", "hotel", "atrakcje", "szpital", "uniwersytet"};
     public FragmentsAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
@@ -16,7 +17,7 @@ public class FragmentsAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return CategoriesFragment.newInstance();
+        return CategoriesFragment.newInstance(categories[position]);
     }
 
     @Override

@@ -1,239 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <include layout="@layout/background_layout" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/white"/>
-        <TableLayout
-            android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logoimage"
+            android:layout_width="@dimen/logo_height"
+            android:layout_height="@dimen/logo_height"
+            android:background="#00000000"
+            android:contentDescription="@string/app_name"
+            android:paddingBottom="30dp"
+            android:scaleType="center"
+            android:src="@drawable/mkbowling"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/showComments"
+            android:layout_width="@dimen/logo_height"
+            android:layout_height="30dp"
+            android:background="@drawable/rounded_button_pink"
+            android:text="@string/opinion"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/logoimage"
+            app:layout_constraintTop_toBottomOf="@id/logoimage" />
+
+        <TextView
+            android:id="@+id/placenamed"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:stretchColumns="*">
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageButton
-                    android:id="@+id/relaks"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/relaks"/>
-                <ImageButton
-                    android:id="@+id/restauracje"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/restaurant"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Nazwa miejsca"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/logoimage"
+            app:layout_constraintTop_toTopOf="@id/logoimage"
+            app:layout_constraintWidth_percent="0.5" />
 
-                <ImageButton
-                    android:id="@+id/hotel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/hotel"/>
-
-                <ImageButton
-                    android:id="@+id/attractions"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/atraction"/>
-                <ImageButton
-                    android:id="@+id/hospitals"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/hospital_small"/>
-                <ImageButton
-                    android:id="@+id/universities"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/university_small"/>
-            </TableRow>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/white" />
-        </TableLayout>
-    </LinearLayout>
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        android:fillViewport="true" >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TableLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="1">
+            android:scaleType="center"
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp">
+            android:src="@drawable/stars"
+            app:layout_constraintBottom_toBottomOf="@+id/rateD"
+            app:layout_constraintStart_toEndOf="@+id/rateD"
+            app:layout_constraintTop_toTopOf="@+id/rateD" />
 
-                <FrameLayout>
-                    <!--table [0,0]-->
-                    <ImageView
-                        android:id="@+id/logoimage"
-                        android:layout_width="110dp"
-                        android:layout_height="150dp"
-                        android:background="#00000000"
-                        android:paddingBottom="30dp"
-                        android:scaleType="center"
-                        android:src="@drawable/mkbowling"/>
+        <TextView
+            android:id="@+id/rateD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:gravity="start|center"
+            android:text="rating"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/placenamed"
+            app:layout_constraintTop_toBottomOf="@+id/placenamed" />
 
-                    <Button
-                        android:id="@+id/showComments"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_gravity="bottom"
-                        android:background="#890130"
-                        android:text="@string/opinion"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
-                </FrameLayout>
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp">
-                    <TextView
-                        android:id="@+id/placenamed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Nazwa miejsca"
-                        android:textSize="14sp"
-                        android:textColor="#FFFFFF"
-                        android:fontFamily="@font/montserrat_bold"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/stars"
-                        android:scaleType="center"
-                        />
-                        <TextView
-                            android:id="@+id/rateD"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="rating"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:gravity="start|center"
-                            />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/infoD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/bahnschrift"
-                        android:text="Opis"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp"
-                        android:scrollbars = "vertical"/>
-                </LinearLayout>
-            </TableRow>
-        </TableLayout>
+        <TextView
+            android:id="@+id/infoD"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/bahnschrift"
+            android:scrollbars="vertical"
+            android:text="Opis"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/placenamed"
+            app:layout_constraintHeight_percent="0.16"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintStart_toStartOf="@+id/placenamed"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <ImageView
             android:id="@+id/placegallery"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+            android:layout_margin="@dimen/margin_default"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@+id/showComments" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/back"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_marginStart="20dp"
-                android:background="#890130"
-                android:gravity="center"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="Back"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <Button
-                android:id="@+id/next"
-                android:text="Next"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
-                android:background="#890130"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:layout_marginEnd="20dp"
-                />
-        </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#00000000"
-                        android:scaleType="center"
-                        android:src="@drawable/stars"/>
-                    <Button
-                        android:id="@+id/rateThePlace"
-                        android:layout_width="150dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#890130"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:text="@string/ratetheplace"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:gravity="center" />
         <Button
-            android:id="@+id/searchAround_details"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_gravity="center_horizontal"
-            android:background="#890130"
-            android:contentDescription="@string/showonmap"
-            android:text="@string/showonmap"
+            android:id="@+id/back"
+            android:layout_width="@dimen/logo_height"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_button_pink"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_default"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Back"
             android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/placegallery" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/next"
+        android:layout_width="@dimen/logo_height"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:background="@drawable/rounded_button_pink"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="Next"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/placegallery"
+        app:layout_constraintTop_toTopOf="@+id/back" />
 
-    </ScrollView>
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#00000000"
+        android:scaleType="center"
+        android:src="@drawable/stars"
+        app:layout_constraintTop_toBottomOf="@+id/back" />
+
+        <Button
+            android:id="@+id/rateThePlace"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_button_pink"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/ratetheplace"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/next"
+            app:layout_constraintStart_toStartOf="@+id/back"
+            app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
+    <Button
+        android:id="@+id/searchAround_details"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@drawable/rounded_button_pink"
+        android:contentDescription="@string/showonmap"
+        android:text="@string/showonmap"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rateThePlace" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

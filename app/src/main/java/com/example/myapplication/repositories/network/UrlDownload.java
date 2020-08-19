@@ -1,11 +1,10 @@
-package com.example.myapplication.repositories;
+package com.example.myapplication.repositories.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class UrlDownload  {
@@ -15,28 +14,23 @@ public class UrlDownload  {
         HttpURLConnection urlConnection = null;
 
         try {
-            //created connection
             URL url = new URL(myUrl);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.connect();
-
-            //read Data from connection
             is = urlConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder stringBuilder = new StringBuilder();
 
-            //check every line. read and add lines
-            String line = "";
+            String line;
             while ((line = bufferedReader.readLine()) != null){
-                stringBuffer.append(line);
+                stringBuilder.append(line);
             }
-            data = stringBuffer.toString();
+            data = stringBuilder.toString();
             bufferedReader.close();
-        }catch (MalformedURLException e){
+        } catch (IOException e){
             e.printStackTrace();
-        }catch (IOException e){
-            e.printStackTrace();
-        }finally {
+        } finally {
+            assert is != null;
             is.close();
             urlConnection.disconnect();
         }

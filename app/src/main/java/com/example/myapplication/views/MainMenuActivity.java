@@ -2,7 +2,6 @@ package com.example.myapplication.views;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -20,8 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.myapplication.R;
 import com.example.myapplication.views.account.LoginActivity;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
@@ -44,9 +41,9 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         loadAppLanguage();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_layout);
-//        String currentUser = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
-      //  formattedUser = Objects.requireNonNull(currentUser).replaceAll(NOT_ALLOWED_SIGNS,"");
-       // loadProfileImage();
+        String currentUser = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+        formattedUser = Objects.requireNonNull(currentUser).replaceAll(NOT_ALLOWED_SIGNS,"");
+        loadProfileImage();
         buildDrawerMenu();
         buildSquareNavigation();
         final ImageButton relax = findViewById(R.id.relax);
@@ -69,15 +66,11 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         View headerView = navigationView.getHeaderView(0);
         TextView usernameDrawerBar = headerView.findViewById(R.id.drawerbarUserName);
         ImageButton userImg = headerView.findViewById(R.id.drawerbarImage);
-///        String userName = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
-
-   //     usernameDrawerBar.setText(userName);
-        userImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-            }
+        String userName = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+        usernameDrawerBar.setText(userName);
+        userImg.setOnClickListener(v -> {
+            finish();
+            startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
         });
 
         DrawerLayout drawerLayout = findViewById(R.id.drawerBar);
@@ -123,34 +116,31 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void buildSquareNavigation(){
-        listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
-                switch (v.getId()){
-                    case R.id.relax:
-                        intent.putExtra(CATEGORY_LABEL,"relaks");
-                        break;
-                    case R.id.restaurants:
-                        intent.putExtra(CATEGORY_LABEL, "restauracje");
-                        break;
-                    case R.id.hotel:
-                        intent.putExtra(CATEGORY_LABEL, "hotel");
-                        break;
-                    case R.id.attractions:
-                        intent.putExtra(CATEGORY_LABEL, "atrakcje");
-                        break;
-                    case R.id.hospitals:
-                        intent.putExtra(CATEGORY_LABEL, "szpital");
-                        break;
-                    case R.id.universities:
-                        intent.putExtra(CATEGORY_LABEL, "uniwersytet");
-                        break;
-                }
-                startActivity(intent);
-                overridePendingTransition(0, 0);
+        listener = v -> {
+            Intent intent;
+            intent = new Intent(getApplicationContext(), CategoriesListActivity.class);
+            switch (v.getId()){
+                case R.id.relax:
+                    intent.putExtra(CATEGORY_LABEL,0);
+                    break;
+                case R.id.restaurants:
+                    intent.putExtra(CATEGORY_LABEL, 1);
+                    break;
+                case R.id.hotel:
+                    intent.putExtra(CATEGORY_LABEL, 2);
+                    break;
+                case R.id.attractions:
+                    intent.putExtra(CATEGORY_LABEL, 3);
+                    break;
+                case R.id.hospitals:
+                    intent.putExtra(CATEGORY_LABEL, 4);
+                    break;
+                case R.id.universities:
+                    intent.putExtra(CATEGORY_LABEL, 5);
+                    break;
             }
+            startActivity(intent);
+            overridePendingTransition(0, 0);
         };
     }
 
@@ -158,29 +148,23 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         final String[] lang = {"Polski", "English"};
         final AlertDialog.Builder theBuilder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogTheme));
         theBuilder.setTitle(getResources().getString(R.string.choselng));
-        theBuilder.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (lngChose == null){
-                    dialog.dismiss();
-                }else{
-                    setAppDefaultLanguage(lngChose);
-                    recreate();
-                }
+        theBuilder.setPositiveButton(getResources().getString(R.string.ok), (dialog, which) -> {
+            if (lngChose == null){
+                dialog.dismiss();
+            }else{
+                setAppDefaultLanguage(lngChose);
+                recreate();
             }
         });
 
-        theBuilder.setSingleChoiceItems(lang, -1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which){
-                    case 0:
-                        lngChose = "pl";
-                        break;
-                    case 1:
-                        lngChose = "en";
-                        break;
-                }
+        theBuilder.setSingleChoiceItems(lang, -1, (dialog, which) -> {
+            switch (which){
+                case 0:
+                    lngChose = "pl";
+                    break;
+                case 1:
+                    lngChose = "en";
+                    break;
             }
         });
         AlertDialog theDialog = theBuilder.create();
@@ -223,20 +207,11 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         final ImageButton photo = headerView.findViewById(R.id.drawerbarImage);
         StorageReference storageRef = FirebaseStorage.getInstance().getReference();
         StorageReference photoReference = storageRef.child("profiles/").child(formattedUser);
-            photoReference.getDownloadUrl().addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    photo.setBackgroundResource(R.drawable.profileface);
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    Picasso.with(getApplicationContext())
-                            .load(uri)
-                            .fit()
-                            .into(photo);
-                }
-            });
+        photoReference.getDownloadUrl().addOnFailureListener(e -> photo.setBackgroundResource(R.drawable.profileface))
+                .addOnSuccessListener(uri -> Picasso.with(getApplicationContext())
+                        .load(uri)
+                        .fit()
+                        .into(photo));
     }
 
     @Override
